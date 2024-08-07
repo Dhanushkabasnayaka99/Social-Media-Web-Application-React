@@ -1,0 +1,132 @@
+@import "../../Style.scss";
+
+
+  .right {
+    @include themify($themes) {
+    display: flex;
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    background-color: themed('bgSoft');
+    .container {
+      top: 10px;
+      width: 100%;
+      overflow: scroll;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      .items {
+        gap: 10px;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+
+       
+
+        span {
+          font-size: 14px;
+          color: themed('textColorSoft'); /* Color based on theme */
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 5px;
+
+          .userProfile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            img {
+              width: 30px;
+              height: 30px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+
+            span {
+              font-size: 14px;
+              color: themed('textColor'); /* Color based on theme */
+            }
+
+            p {
+              font-size: 14px;
+              color: themed('textColorSoft'); /* Color based on theme */
+            }
+          }
+
+          .buttons {
+            gap: 10px;
+            display: flex;
+            justify-content: space-around;
+
+            button {
+              padding: 5px 10px;
+              font-size: 14px;
+              color: themed('bg'); /* Text color based on theme */
+              border: none;
+              background-color: themed('textColor'); /* Background color based on theme */
+            }
+          }
+        }
+      }
+
+      .firends {
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+      
+
+        .user {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          gap: 15px;
+          padding: 10px;
+
+          .userProfile {
+            height: 30px;
+            width: 30px;
+            object-fit: cover;
+            position: relative;
+            padding: 2px;
+
+            .indicator {
+              width: 10px;
+              height: 10px;
+              position: absolute;
+              background-color: green; /* Indicator color based on theme */
+              bottom: 0;
+              right: 0;
+              border-radius: 50%;
+            }
+
+            img {
+              height: 30px;
+              width: 30px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+
+          p {
+            font-size: 14px;
+            color: themed('textColorSoft'); /* Color based on theme */
+          }
+        }
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

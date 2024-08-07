@@ -1,0 +1,48 @@
+@import "../../Style.scss";
+
+.left {
+  @include themify($themes) {
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    flex: 2;
+    padding: 5px;
+  //  background: red;
+   background: themed("bgSoft");
+
+    .container {
+      padding: 15px;
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            justify-content: center;
+            border-radius: 50%;
+          }
+        }
+        span {
+          text-align: start;
+          font-size: 12px;
+          color: themed("textColor"); /* Updated to use theme color */
+        }
+        hr {
+          height: 0.25px;
+          border: none;
+          background-color: themed("border"); /* Updated to use theme color */
+          width: 200px;
+        }
+      }
+    }
+  }
+}
