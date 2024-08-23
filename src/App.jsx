@@ -18,41 +18,35 @@ import { DarkModeContext } from "./Context/darkMode";
 import { AuthContext } from "./Context/AuthContext.jsx";
 
 function App() {
-  const { currentUser, login } = useContext(AuthContext);
-
-  // console.log(currentUser);
+  const { currentUser } = useContext(AuthContext);
   const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
-      <>
-        <div
-          className={`theme-${darkMode ? "dark" : "light"}`}
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <div className=""></div>
-          <Navbar />
-          <div style={{ display: "flex", top: "50px" }}>
-            <LeftBar />
-            <div style={{ display: "flex", flex: 6 }}>
-              <Outlet />
-            </div>
-
-            <RightBar />
+      <div
+        className={`theme-${darkMode ? "dark" : "light"}`}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <Navbar />
+        <div style={{ display: "flex", top: "50px" }}>
+          <LeftBar />
+          <div style={{ display: "flex", flex: 6 }}>
+            <Outlet />
           </div>
+          <RightBar />
         </div>
-      </>
+      </div>
     );
   };
 
   const ProtectedRoute = ({ children }) => {
+   
     console.log("Current User:", currentUser); // Debugging line
 
     if (!currentUser) {
-      console.log("inside lign")
+      console.log("Not authenticated, redirecting to login");
       return <Navigate to="/login" />;
     } else {
-      console.log("inside children")
       return children;
     }
   };
@@ -71,7 +65,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/profile",
+          path: "/profile/:id",
           element: <Profile />,
         },
       ],

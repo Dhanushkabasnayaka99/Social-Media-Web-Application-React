@@ -38,7 +38,7 @@ export default function Navbar() {
         <GridViewOutlinedIcon className="icons" />
         <div className="search">
           <SearchOutlinedIcon className="icons" />
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search"  />
         </div>
       </div>
       <div className="right">
